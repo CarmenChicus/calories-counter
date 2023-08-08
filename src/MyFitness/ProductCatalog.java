@@ -46,16 +46,44 @@ public class ProductCatalog {
         }
         return null;
     }
+
+    public int getProductIndexByName(String name) {
+        //parcurg lista si verific daca numele se afla in lista
+        //daca se afla in lista returnez produsul din lista care are numele acelasi cu cel citit de la tastatura
+        //daca nu, afisez ca nu este in lista
+        if (numberOfProducts == 0) {
+            return -1;
+        }
+        for (int i = 0; i < numberOfProducts; i++) {
+            if (name.equals(products[i].name)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+     public boolean deleteProduct(String name) {
+         //cautam produsul dupa nume si aflu pozitia lui
+         int index = getProductIndexByName(name);
+
+         if (index == -1) {
+             return false;
+         }
+         //stergerea
+         //parcurg incepand de la pozitia aflaata pana la numarul de produse
+         //la pozitia curenta bag elementul de la pozitia urmatoare
+         for (int i = index; i < numberOfProducts - 1; i++) {
+             products[i] = products[i + 1];
+         }
+         numberOfProducts--;
+         products[numberOfProducts] = null;
+         return true;
+
+     }
+
 }
 
 
-// public boolean deleteProduct(String name) {
-//cautam produsul in lista dupa nume
-//daca nu il gasim returnam false
-//altfel returnam true
-//   for(int i=0;i<numberOfProducts;i++){
-//   if()
-//    }else{
-//return true;
+
 
 

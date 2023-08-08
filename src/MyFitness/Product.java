@@ -17,9 +17,7 @@ public class Product {
     }
 
     public static double computeCalories(double fats, double carbs, double proteins) {
-        double calories = 0;
-        calories = (9 * fats) + (4 * carbs) + (4 * proteins);
-        return calories;
+        return (9 * fats) + (4 * carbs) + (4 * proteins);
     }
 
     @Override

@@ -6,9 +6,6 @@ public class CaloriesCounter {
     public static void main(String[] args) {
 
         ProductCatalog productCatalog = new ProductCatalog();
-        Product product = new Product("pere", 20, 10, 15);
-        productCatalog.addProduct(product);
-        productCatalog.printProducts();
 
         Scanner scanner = new Scanner(System.in);
         int option = 0;
@@ -44,8 +41,14 @@ public class CaloriesCounter {
                 double proteins = scanner.nextDouble();
                 Product newProduct = new Product(name, fats, carbs, proteins);
               boolean result = productCatalog.addProduct(newProduct);
-                //      Product product = new Product("pere", 20, 10, 15);
-                productCatalog.addProduct(newProduct);
+              if (result){
+                  System.out.println("Produsul " + newProduct.name + " +s-a adaugat");
+              }
+              else{
+                  System.out.println("Produsul " + newProduct.name + " + nu s-a adaugat");
+              }
+
+
                 productCatalog.printProducts();
                 break;
             case 2:
